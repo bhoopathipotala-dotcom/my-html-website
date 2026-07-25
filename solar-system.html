@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System Explorer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loading-screen">
+      <div class="loading-card">
+        <div class="spinner"></div>
+        <h2>Loading Solar System...</h2>
+      </div>
+    </div>
+
+    <canvas id="starfield"></canvas>
+
+    <header class="navbar">
+      <div class="brand">Orbit Lab</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solar-system.html" class="active">Solar System</a>
+        <a href="missions.html">Missions</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn music-toggle" aria-label="Toggle music">🔈</button>
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">Planetary deep dive</span>
+          <h1>Solar System</h1>
+          <p>Explore each world in detail, from the scorching inner planets to the icy giants beyond.</p>
+          <div class="hero-actions">
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit-card">
+            <div class="planet planet-earth"></div>
+            <div class="planet-ring"></div>
+            <div class="planet planet-mars"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Celestial tour</span>
+            <h2>Planet Details</h2>
+          </div>
+          <p>Discover the traits that make every planet unique.</p>
+        </div>
+        <div class="grid planet-grid">
+          <article class="planet-card">
+            <div class="planet-icon mercury"></div>
+            <h3>Mercury</h3>
+            <div class="meta">57.9 million km</div>
+            <p>Small and rocky, with the fastest orbit around the Sun.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon venus"></div>
+            <h3>Venus</h3>
+            <div class="meta">108.2 million km</div>
+            <p>Covered in thick clouds and known for a crushing greenhouse effect.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon earth"></div>
+            <h3>Earth</h3>
+            <div class="meta">149.6 million km</div>
+            <p>The only known world with life, oceans, and a protective atmosphere.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon mars"></div>
+            <h3>Mars</h3>
+            <div class="meta">227.9 million km</div>
+            <p>Home to the largest volcano in the solar system, Olympus Mons.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon jupiter"></div>
+            <h3>Jupiter</h3>
+            <div class="meta">778.6 million km</div>
+            <p>A gas giant massive enough to hold more than 1,300 Earths.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon saturn"></div>
+            <h3>Saturn</h3>
+            <div class="meta">1.43 billion km</div>
+            <p>Famous for its icy rings, which stretch across vast distances.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon uranus"></div>
+            <h3>Uranus</h3>
+            <div class="meta">2.87 billion km</div>
+            <p>Turns on its side and has a pale blue color from methane gas.</p>
+          </article>
+          <article class="planet-card">
+            <div class="planet-icon neptune"></div>
+            <h3>Neptune</h3>
+            <div class="meta">4.50 billion km</div>
+            <p>The windiest planet, with storms that race across its atmosphere.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Created by Bhoopathi Raju - CSE Student</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
