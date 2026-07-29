@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbit Lab Store</title>
+    <meta name="description" content="A futuristic ecommerce experience with animated product cards, contact details, and an immersive story-driven layout." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loading-screen">
+      <div class="loading-card">
+        <div class="spinner"></div>
+        <h2>Preparing the Orbital Store...</h2>
+        <p>Loading premium mission gear and cosmic essentials.</p>
+      </div>
+    </div>
+
+    <canvas id="starfield"></canvas>
+
+    <header class="navbar">
+      <div class="brand">Orbit Lab</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solar-system.html">Solar System</a>
+        <a href="missions.html">Missions</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ecommerce.html" class="active">Store</a>
+        <a href="about-us.html">About Us</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn music-toggle" aria-label="Toggle music">🔈</button>
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">Orbital marketplace</span>
+          <h1>Mission-ready essentials</h1>
+          <p>Discover premium gear inspired by deep-space exploration, astronaut comfort, and futuristic design.</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Browse Products</a>
+            <a href="#about" class="btn btn-secondary">About the Store</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit-card">
+            <div class="planet planet-earth"></div>
+            <div class="planet-ring"></div>
+            <div class="planet planet-mars"></div>
+            <div class="hero-panel">
+              <h3>Launch-ready collection</h3>
+              <p>Every item is curated for collectors, explorers, and dreamers who love the future.</p>
+            </div>
+          </div>
+          <div class="hero-photo-card">
+            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?auto=format&fit=crop&w=900&q=80" alt="A futuristic product display with glowing lights" loading="lazy" />
+            <div class="hero-photo-caption">The storefront now carries the same animated storytelling as the rest of the website.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="products">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Featured products</span>
+            <h2>Shop the collection</h2>
+          </div>
+          <p>Curated pieces for explorers, storytellers, and orbit lovers.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Moon Lamp glowing softly in a cozy room" loading="lazy" />
+            <div class="product-content">
+              <h3>Moon Lamp</h3>
+              <p>Soft lunar glow for peaceful study spaces and cozy bedrooms.</p>
+              <div class="product-meta">
+                <span>$24.99</span>
+                <a href="moon-lamp.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80" alt="Galaxy Projector creating a star-filled room display" loading="lazy" />
+            <div class="product-content">
+              <h3>Galaxy Projector</h3>
+              <p>Transform walls into moving nebula scenes with immersive color shifts.</p>
+              <div class="product-meta">
+                <span>$39.99</span>
+                <a href="galaxy-projector.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80" alt="Astronaut Bluetooth Speaker with a compact speaker design" loading="lazy" />
+            <div class="product-content">
+              <h3>Astronaut Bluetooth Speaker</h3>
+              <p>Portable sound with a polished astronaut design and rich bass.</p>
+              <div class="product-meta">
+                <span>$49.99</span>
+                <a href="astronaut-speaker.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=80" alt="LED Astronaut Desk Lamp on a workspace" loading="lazy" />
+            <div class="product-content">
+              <h3>LED Astronaut Desk Lamp</h3>
+              <p>Adjustable lighting for workspaces with a futuristic astronaut silhouette.</p>
+              <div class="product-meta">
+                <span>$29.99</span>
+                <a href="astronaut-desk-lamp.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=900&q=80" alt="Wireless Charging Pad charging a smartphone" loading="lazy" />
+            <div class="product-content">
+              <h3>Wireless Charging Pad</h3>
+              <p>Fast, sleek charging with minimal clutter and a modern finish.</p>
+              <div class="product-meta">
+                <span>$19.99</span>
+                <a href="wireless-charging-pad.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Solar System Organizer on a tidy workspace desk" loading="lazy" />
+            <div class="product-content">
+              <h3>Solar System Organizer</h3>
+              <p>Keep cables, accessories, and essentials neatly arranged with style.</p>
+              <div class="product-meta">
+                <span>$14.99</span>
+                <a href="solar-system-organizer.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=80" alt="Floating Moon Globe displayed as a decorative globe" loading="lazy" />
+            <div class="product-content">
+              <h3>Floating Moon Globe</h3>
+              <p>Suspended decorative globe that brings a calm, celestial feel to any room.</p>
+              <div class="product-meta">
+                <span>$79.99</span>
+                <a href="floating-moon-globe.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80" alt="Meteorite Phone Stand holding a phone on a desk" loading="lazy" />
+            <div class="product-content">
+              <h3>Meteorite Phone Stand</h3>
+              <p>Durable stand with a rugged texture inspired by meteorite surfaces.</p>
+              <div class="product-meta">
+                <span>$12.99</span>
+                <a href="meteorite-phone-stand.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80" alt="Planet Keychain Set arranged as a small collectible set" loading="lazy" />
+            <div class="product-content">
+              <h3>Planet Keychain Set</h3>
+              <p>Compact keychains shaped like the planets, ideal for collectors.</p>
+              <div class="product-meta">
+                <span>$9.99</span>
+                <a href="planet-keychain-set.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Rocket USB Hub connected to a laptop" loading="lazy" />
+            <div class="product-content">
+              <h3>Rocket USB Hub</h3>
+              <p>Compact multi-port hub with a rocket-inspired design and fast transfer.</p>
+              <div class="product-meta">
+                <span>$22.99</span>
+                <a href="rocket-usb-hub.html" class="btn btn-secondary">Buy Product</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">About the store</span>
+            <h2>Built for the next frontier</h2>
+          </div>
+          <p>Our collection blends functionality, art, and cosmic energy.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">🛰️</div>
+            <h3>Mission-driven design</h3>
+            <p>Each product captures the feeling of real exploration with polished materials and sleek silhouettes.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🌠</div>
+            <h3>Collector quality</h3>
+            <p>High-end finishes, durable build quality, and thoughtful details ensure every purchase feels special.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Fast delivery</h3>
+            <p>We ship worldwide with careful packaging and a dedicated support team for every order.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Contact & support</span>
+            <h2>Get in touch with Orbit Lab</h2>
+          </div>
+          <p>Reach us for questions, custom orders, or mission partnerships.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <h3>Store details</h3>
+            <p><strong>Email:</strong> hello@orbitlab.com</p>
+            <p><strong>Phone:</strong> +1 (555) 014-2048</p>
+            <p><strong>Location:</strong> 218 Nova Avenue, Seattle, WA</p>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">📸</a>
+              <a href="#" aria-label="X">✦</a>
+              <a href="#" aria-label="Email">✉️</a>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form id="contactForm">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your ideal mission-ready product."></textarea>
+              <button class="btn btn-primary" type="submit">Send request</button>
+              <div class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
+    <section class="section" id="store-promise">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Store promise</span>
+          <h2>Why this catalog stands out</h2>
+        </div>
+        <p>Each product is selected to combine utility, design, and a touch of cosmic personality.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Thoughtful design</h3>
+          <p>The collection is built around everyday usefulness while still feeling playful, modern, and space-inspired.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🎁</div>
+          <h3>Perfect gifts</h3>
+          <p>Whether for a space fan, student, collector, or tech lover, these products feel personal and distinctive.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Convenient browsing</h3>
+          <p>Every item links to a detailed product page so buyers can understand functionality before making a choice.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Created by Bhoopathi Raju - CSE Student</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

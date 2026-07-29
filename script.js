@@ -17,6 +17,10 @@ const themeToggle = document.querySelector('.theme-toggle');
 const musicToggle = document.querySelector('.music-toggle');
 const loadingScreen = document.querySelector('.loading-screen');
 const backToTop = document.querySelector('.back-to-top');
+const portfolioPage = document.querySelector('.portfolio-page');
+const revealItems = document.querySelectorAll('.reveal');
+const counterItems = document.querySelectorAll('.counter-value');
+const typingText = document.querySelector('.typing-text');
 const clockEl = document.querySelector('#clock');
 const factEl = document.querySelector('#fact');
 const countdownEl = document.querySelector('#countdown');
@@ -46,7 +50,14 @@ function updateTheme() {
 function updateClock() {
   const now = new Date();
   if (clockEl) {
-    clockEl.textContent = now.toLocaleString();
+    const localTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const istTime = new Date(now.getTime() + (5.5 * 60 * 60 * 1000)).toLocaleTimeString('en-IN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+    clockEl.textContent = `${localTime} • IST ${istTime}`;
   }
 }
 
@@ -59,20 +70,17 @@ function setFact() {
 function startCountdown() {
   if (!countdownEl) return;
 
-  const launchDate = new Date('2026-12-15T18:00:00');
+  const orbitDuration = 365.25 * 24 * 60 * 60 * 1000;
+  const startDate = new Date('2026-01-01T00:00:00');
+
   const tick = () => {
     const now = new Date();
-    const diff = launchDate - now;
-    if (diff <= 0) {
-      countdownEl.textContent = 'Mission launch window is now open!';
-      return;
-    }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-    countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    const elapsed = now.getTime() - startDate.getTime();
+    const progress = Math.min((elapsed / orbitDuration) * 100, 100);
+    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    countdownEl.textContent = `${dayOfYear + 1} / 365 days • ${progress.toFixed(1)}% orbit`;
   };
+
   tick();
   setInterval(tick, 1000);
 }
@@ -182,6 +190,84 @@ function observeSections() {
   });
 }
 
+function observeReveal() {
+  revealItems.forEach((item) => item.classList.add('visible'));
+
+  if (typeof IntersectionObserver === 'undefined') return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+function animateCounters() {
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const element = entry.target;
+      const target = Number(element.dataset.target || 0);
+      const suffix = element.dataset.suffix || '';
+      const duration = 1200;
+      const startTime = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * target);
+        element.textContent = `${value}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          element.textContent = `${target}${suffix}`;
+        }
+      };
+
+      requestAnimationFrame(tick);
+      observer.unobserve(element);
+    });
+  }, { threshold: 0.7 });
+
+  counterItems.forEach((item) => counterObserver.observe(item));
+}
+
+function typeDesignation() {
+  if (!typingText) return;
+  const text = typingText.dataset.typed || '';
+
+  if (prefersReducedMotion) {
+    typingText.textContent = text;
+    return;
+  }
+
+  typingText.textContent = '';
+  let index = 0;
+
+  const tick = () => {
+    typingText.textContent = text.slice(0, index);
+    index += 1;
+    if (index <= text.length) {
+      setTimeout(tick, 70);
+    }
+  };
+
+  tick();
+}
+
+function updateParallax(event) {
+  if (!portfolioPage) return;
+  const x = (event.clientX / window.innerWidth - 0.5) * 10;
+  const y = (event.clientY / window.innerHeight - 0.5) * 10;
+  portfolioPage.style.setProperty('--parallax-x', `${x}px`);
+  portfolioPage.style.setProperty('--parallax-y', `${y}px`);
+}
+
 function updateActiveLink() {
   let current = '';
   sections.forEach((section) => {
@@ -199,9 +285,13 @@ function showLightbox(item) {
   const title = item.dataset.title;
   const description = item.dataset.description;
   const type = item.dataset.type;
+  const image = item.dataset.image;
   lightboxTitle.textContent = title;
   lightboxDescription.textContent = description;
   lightboxVisual.className = `gallery-visual ${type}`;
+  lightboxVisual.style.backgroundImage = image ? `url('${image}')` : '';
+  lightboxVisual.style.backgroundSize = 'cover';
+  lightboxVisual.style.backgroundPosition = 'center';
   lightbox.classList.add('active');
   state.currentImage = item;
 }
@@ -219,6 +309,8 @@ window.addEventListener('scroll', () => {
   updateActiveLink();
 });
 
+window.addEventListener('mousemove', updateParallax);
+
 window.addEventListener('DOMContentLoaded', () => {
   updateTheme();
   updateClock();
@@ -226,6 +318,9 @@ window.addEventListener('DOMContentLoaded', () => {
   startCountdown();
   createStarfield();
   observeSections();
+  observeReveal();
+  animateCounters();
+  typeDesignation();
   updateActiveLink();
   setInterval(updateClock, 1000);
   if (loadingScreen) {
